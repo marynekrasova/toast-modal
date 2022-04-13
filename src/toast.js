@@ -1,10 +1,11 @@
+myContainer.Toast = (function (){
 function Toast(elt,type,message) {
   Toast.superclass.constructor.call(this, elt);
   this.type = type;
   this.message = message;
   this.render();
 }
-extend(Toast, Base);
+myContainer.extend(Toast, myContainer.Base);
 
 Toast.prototype.show = function (){
   clearTimeout(window.timeOut);
@@ -42,3 +43,6 @@ Toast.prototype.render = function () {
       break;
   }
 };
+
+  return Toast;
+})();

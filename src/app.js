@@ -9,23 +9,23 @@ window.addEventListener("DOMContentLoaded", ()=>{
   const modal = document.querySelector('.modal');
 
   errorBtn.addEventListener('click', () => {
-    const toastMsg = new Toast(toast, 'error', 'Message');
+    const toastMsg = new myContainer.Toast(toast, 'error', 'Message');
     toastMsg.show();
   })
   warningBtn.addEventListener('click', () => {
-    const toastMsg = new Toast(toast, 'warning', 'Message');
+    const toastMsg = new myContainer.Toast(toast, 'warning', 'Message');
     toastMsg.show();
   })
   successBtn.addEventListener('click', () => {
-    const toastMsg = new Toast(toast, 'success', 'Message');
+    const toastMsg = new myContainer.Toast(toast, 'success', 'Message');
     toastMsg.show();
   })
   infoBtn.addEventListener('click', () => {
-    const toastMsg = new Toast(toast, 'info', 'Message');
+    const toastMsg = new myContainer.Toast(toast, 'info', 'Message');
     toastMsg.show();
   })
 
-const onSubmit = (name,pass) => {console.log(name, pass)};
+const onSubmit = (data) => {console.log(data)};
 
 const config = {
   "header": "HEADER",
@@ -43,10 +43,9 @@ const config = {
   ]
 }
 
-const modalWind = new Modal(modal, config, onSubmit);
+const modalWind = new myContainer.Modal(modal, config, onSubmit);
 
 modalBtn.addEventListener('click', () => {
-  modalWind.render();
   modalWind.show();
 })
 });
