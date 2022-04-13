@@ -1,6 +1,3 @@
-import extend from "./util.js";
-import Base from "./base.js";
-
 function Toast(elt,type,message) {
   Toast.superclass.constructor.call(this, elt);
   this.type = type;
@@ -45,4 +42,3 @@ Toast.prototype.render = function () {
       break;
   }
 };
-export default Toast;

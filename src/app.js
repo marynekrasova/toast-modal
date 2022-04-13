@@ -1,7 +1,4 @@
 "use strict";
-import Toast from "./toast.js";
-import Modal from "./modal.js";
-
 window.addEventListener("DOMContentLoaded", ()=>{
   const modalBtn = document.getElementById('modalF');
   const errorBtn = document.getElementById('error');

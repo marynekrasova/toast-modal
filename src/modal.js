@@ -1,6 +1,3 @@
-import extend from "./util.js";
-import Base from "./base.js";
-
 function Modal(elt, config, onSubmit) {
   Modal.superclass.constructor.call(this, elt);
   this.config = config;
@@ -53,7 +50,6 @@ if (this.config.fields !== undefined) {
 
   modalConf.appendChild(content);
 }
-export default Modal;
 
 
 
