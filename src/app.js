@@ -1,4 +1,7 @@
 "use strict";
+import Modal from "./modal.js";
+import Toast from "./toast.js";
+
 window.addEventListener("DOMContentLoaded", ()=>{
   const modalBtn = document.getElementById('modalF');
   const errorBtn = document.getElementById('error');
@@ -9,19 +12,19 @@ window.addEventListener("DOMContentLoaded", ()=>{
   const modal = document.querySelector('.modal');
 
   errorBtn.addEventListener('click', () => {
-    const toastMsg = new myContainer.Toast(toast, 'error', 'Message');
+    const toastMsg = new Toast(toast, 'error', 'Message');
     toastMsg.show();
   })
   warningBtn.addEventListener('click', () => {
-    const toastMsg = new myContainer.Toast(toast, 'warning', 'Message');
+    const toastMsg = new Toast(toast, 'warning', 'Message');
     toastMsg.show();
   })
   successBtn.addEventListener('click', () => {
-    const toastMsg = new myContainer.Toast(toast, 'success', 'Message');
+    const toastMsg = new Toast(toast, 'success', 'Message');
     toastMsg.show();
   })
   infoBtn.addEventListener('click', () => {
-    const toastMsg = new myContainer.Toast(toast, 'info', 'Message');
+    const toastMsg = new Toast(toast, 'info', 'Message');
     toastMsg.show();
   })
 
@@ -43,7 +46,7 @@ const config = {
   ]
 }
 
-const modalWind = new myContainer.Modal(modal, config, onSubmit);
+const modalWind = new Modal(modal, config, onSubmit);
 
 modalBtn.addEventListener('click', () => {
   modalWind.show();
