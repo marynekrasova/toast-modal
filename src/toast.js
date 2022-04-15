@@ -5,7 +5,7 @@ class Toast extends Base {
     super(elt);
     this.type = type;
     this.message = message;
-    this._render();
+    this.#render();
   }
 
   show() {
@@ -16,8 +16,8 @@ class Toast extends Base {
     }, 5000);
   }
 
-  _render() {
-    this.elt.querySelector(".toast_content").innerHTML =
+  #render() {
+    this.elt.querySelector(".toast_main").innerHTML =
       `<i></i>
     <div class="toast_msg">
     <h2>${this.type}</h2>

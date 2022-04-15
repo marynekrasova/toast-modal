@@ -1,16 +1,9 @@
  class Base {
    constructor(elt){
      this.elt = elt;
-     const closeElt = document.createElement('div');
-     closeElt.classList.add('close');
-     closeElt.innerText = 'X';
-     if (this.elt.classList.contains('toast')){
-       this.elt.appendChild(closeElt);
-     } else {
-       const modalElt = this.elt.querySelector('.modal_content');
-       modalElt.appendChild(closeElt);
-     }
-     closeElt.addEventListener('click', () => {
+     const closeButton = createCloseButton();
+     this.elt.firstElementChild.appendChild(closeButton);
+     closeButton.addEventListener('click', () => {
        this.hide();
      })
    }
@@ -20,5 +13,12 @@
    hide(){
      this.elt.classList.remove("open");
    }
+  }
+
+  function createCloseButton (){
+    const closeElt = document.createElement('div');
+    closeElt.classList.add('close');
+    closeElt.innerText = 'X';
+    return closeElt;
   }
  export default Base;

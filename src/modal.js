@@ -5,17 +5,17 @@ class Modal extends Base{
     super(elt);
     this.config = config;
     this.onSubmit = onSubmit;
-    this._render();
+    this.#render();
   }
 
-  _render(){
+  #render(){
     const modalConf = this.elt.querySelector('.main');
-
+    const hasFields = !!this.config.fields;
     modalConf.innerHTML =
       `<h2>${this.config.header || "Header"}</h2>
     <div class="text_modal"></div>
     <button class="cancel">Cancel</button>
-    <button class="submit"></button>`;
+    <button class="submit">${hasFields ? "Submit" : "Ok"}</button>`;
 
     const content = this.elt.querySelector('.text_modal');
     const cancelBtn = this.elt.querySelector('.cancel');
@@ -23,16 +23,9 @@ class Modal extends Base{
 
     content.innerText = this.config.text;
 
-    if (this.config.fields) {
-      for (const field of this.config.fields) {
-        const elem = document.createElement('input');
-        elem.classList.add("field");
-        elem.setAttribute("placeholder", field.lable);
-        elem.setAttribute("name", field.lable);
-        elem.setAttribute("type", field.type);
-        content.appendChild(elem);
-      }
-      submitBtn.innerHTML = 'Submit';
+    if (hasFields) {
+      createFields(content, this.config.fields);
+
       submitBtn.addEventListener('click',  () => {
         const data = [];
         const fieldElts = this.elt.querySelectorAll(".field");
@@ -41,7 +34,6 @@ class Modal extends Base{
         this.hide();
       });
     } else {
-      submitBtn.innerHTML = 'Ok';
       submitBtn.addEventListener('click',  () => {
         this.hide();
       });
@@ -56,5 +48,15 @@ class Modal extends Base{
 
 }
 
+function createFields(elt, fields){
+  for (const field of fields) {
+    const elem = document.createElement('input');
+    elem.classList.add("field");
+    elem.setAttribute("placeholder", field.lable);
+    elem.setAttribute("name", field.lable);
+    elem.setAttribute("type", field.type);
+    elt.appendChild(elem);
+  }
+}
 export default Modal;
 
