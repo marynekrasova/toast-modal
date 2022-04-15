@@ -2,9 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script type="module" src="src/base.js"></script>
+    <script type="module" src="src/modal.js"></script>
+    <script type="module" src="src/toast.js"></script>
+    <script type="module" src="src/app.js"></script>
+    <title>Toasts Modal</title>
 </head>
 <body>
-
+<div class="btn_wrap">
+    <button id="modalF" class="btn"> Modal </button>
+    <button id="error" class="btn"> Error </button>
+    <button id="warning" class="btn"> Warning </button>
+    <button id="success" class="btn"> Success </button>
+    <button id="info" class="btn"> Info </button>
+</div>
+<div class="toast">
+    <div class="toast_content">
+        <div class="toast_main"></div>
+    </div>
+</div>
+<div class="modal">
+    <div class="modal_content">
+        <div class="main"></div>
+    </div>
+</div>
 </body>
 </html>
